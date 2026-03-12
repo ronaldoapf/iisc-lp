@@ -11,7 +11,6 @@ import { WelcomeBanner } from "@/pages/home/components/welcome-banner"
 import { BackToTop } from "@/components/back-to-top"
 import { fadeInUp, staggerContainer } from "@/motions"
 
-
 const events = [
   {
     day: "20",
