@@ -2,24 +2,53 @@ import { motion } from "framer-motion"
 import { MapPin, Phone, Mail, Clock } from "lucide-react"
 import { fadeInUp, staggerContainer } from "@/motions"
 
+const infoItems = [
+  {
+    Icon: MapPin,
+    label: "Endereço",
+    value: "Avenida José Fonseca e Silva, 737 — Uberlândia, MG",
+  },
+  {
+    Icon: Phone,
+    label: "Telefone",
+    value: "(34) 9 9119-2543",
+  },
+  {
+    Icon: Mail,
+    label: "E-mail",
+    value: "ronaldo.alves.1997@gmail.com",
+  },
+  {
+    Icon: Clock,
+    label: "Horários de Culto",
+    value: "Domingo: 9h e 11h · Quarta: 19h",
+  },
+]
+
 export function Location() {
   return (
-    <section id="location" className="w-full py-20 bg-white">
-      <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section
+      id="location"
+      className="w-full py-16 bg-white"
+    >
+      <div className="container">
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
           variants={fadeInUp}
-          transition={{ duration: 0.6 }}
-          className="mx-auto mb-16 max-w-3xl text-center"
+          transition={{ duration: 0.7 }}
+          className="mb-16"
         >
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+          <div className="mb-4 flex items-center gap-3">
+            <span className="h-px w-6 rounded-full bg-iisc-gold" />
+            <span className="text-xs font-semibold uppercase tracking-[0.22em]">
+              Venha nos Visitar
+            </span>
+          </div>
+          <h2 className="text-4xl font-bold leading-none text-gray-800 sm:text-5xl lg:text-6xl">
             Onde Estamos
           </h2>
-          <p className="mt-4 text-lg text-muted-foreground">
-            Venha nos visitar! Estamos localizados em um lugar de fácil acesso.
-          </p>
         </motion.div>
 
         <motion.div
@@ -27,79 +56,47 @@ export function Location() {
           whileInView="visible"
           viewport={{ once: true }}
           variants={staggerContainer}
-          className="grid gap-8 lg:grid-cols-2"
+          className="grid gap-10 lg:grid-cols-2"
         >
           {/* Map */}
-          <motion.div variants={fadeInUp} className="overflow-hidden rounded-2xl shadow-lg">
+          <motion.div
+            variants={fadeInUp}
+            className="overflow-hidden rounded-2xl border border-iisc-green/20"
+          >
             <iframe
               title="Localização da Igreja"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3786.123456789!2d-47.9319!3d-18.9186!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sAvenida+Jos%C3%A9+Fonseca+e+Silva%2C+737%2C+Uberl%C3%A2ndia%2C+MG!5e0!3m2!1spt-BR!2sbr!4v1234567890"
               width="100%"
               height="420"
-              style={{ border: 0 }}
+              className="border-0 block"
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              className="w-full"
             />
           </motion.div>
 
-          {/* Info */}
-          <motion.div variants={fadeInUp} className="flex flex-col justify-center space-y-6">
-            <div className="flex items-start gap-4">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10">
-                <MapPin className="h-6 w-6 text-primary" />
-              </div>
-              <div>
-                <h4 className="font-semibold">Endereço</h4>
-                <p className="mt-1 text-sm text-muted-foreground">
-                  Avenida José Fonseca e Silva, 737 — Uberlândia, MG
-                </p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-4">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10">
-                <Phone className="h-6 w-6 text-primary" />
-              </div>
-              <div>
-                <h4 className="font-semibold">Telefone</h4>
-                <p className="mt-1 text-sm text-muted-foreground">
-                  (34) 9 9119-2543
-                </p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-4">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10">
-                <Mail className="h-6 w-6 text-primary" />
-              </div>
-              <div>
-                <h4 className="font-semibold">E-mail</h4>
-                <p className="mt-1 text-sm text-muted-foreground">
-                  ronaldo.alves.1997@gmail.com
-                </p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-4">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10">
-                <Clock className="h-6 w-6 text-primary" />
-              </div>
-              <div>
-                <h4 className="font-semibold">Horários de Culto</h4>
-                <div className="mt-1 space-y-1 text-sm text-muted-foreground">
-                  <p>Domingo: 9h e 11h</p>
-                  <p>Quarta-feira: 19h</p>
+          <motion.div variants={fadeInUp} className="flex flex-col justify-center space-y-8">
+            {infoItems.map((item) => (
+              <div key={item.label} className="flex items-start gap-5">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-iisc-green/12 border border-iisc-green/25">
+                  <item.Icon className="h-5 w-5 text-iisc-gold" />
+                </div>
+                <div>
+                  <p className="mb-1 text-xs uppercase tracking-widest text-iisc-gold font-display">
+                    {item.label}
+                  </p>
+                  <p className="text-sm leading-relaxed text-gray-800">
+                    {item.value}
+                  </p>
                 </div>
               </div>
-            </div>
+            ))}
 
             <a
-              href="https://maps.google.com/?q=Avenida+José+Fonseca+e+Silva,+737"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex w-fit items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
+              href="https://maps.google.com/?q=Avenida+José+Fonseca+e+Silva,+737"
+              className="mt-2 inline-flex w-fit items-center gap-2 rounded-full px-7 py-3 text-sm font-semibold uppercase tracking-wider transition-all duration-300 hover:scale-105 shadow-[0_4px_24px_rgba(212,165,53,0.25)] text-iisc-midnight bg-linear-to-br from-iisc-gold to-iisc-gold-light"
             >
               <MapPin className="h-4 w-4" />
               Como chegar
