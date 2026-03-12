@@ -376,9 +376,6 @@ export function Home() {
       {/* Location Section */}
       <Location />
 
-      {/* Contact/Footer Section */}
-      <Footer />
-
       <BackToTop />
     </div>
   )
