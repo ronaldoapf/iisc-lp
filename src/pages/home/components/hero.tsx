@@ -1,12 +1,24 @@
-import { motion } from "framer-motion"
+import { AnimatePresence, motion } from "framer-motion"
 import { ArrowRight } from "lucide-react"
 import { Link } from "react-router-dom"
 import { fadeInUp, staggerContainer } from "@/motions"
+import { useEffect, useState } from "react"
+
+const WORDS = ["propósito", "esperança", "comunhão", "transformação", "Jesus"]
 
 export function Hero() {
+  const [wordIndex, setWordIndex] = useState(0)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setWordIndex((current) => (current + 1) % WORDS.length)
+    }, 3000)
+    return () => clearInterval(interval)
+  }, [])
+
   return (
-    <section className="relative w-full overflow-hidden hero-background min-h-[75vh] flex flex-col justify-end">
-      <div className="absolute inset-0 bg-gradient-to-t from-iisc-midnight via-iisc-midnight/60 to-iisc-midnight/10" />
+    <section className="relative w-full overflow-hidden hero-background flex flex-col justify-end">
+      <div className="absolute inset-0 bg-linear-to-t from-iisc-midnight via-iisc-midnight/60 to-iisc-midnight/10" />
 
       <div
         className="absolute inset-0 opacity-[0.035]"
@@ -17,11 +29,11 @@ export function Hero() {
         }}
       />
 
-      <span className="pointer-events-none absolute right-4 bottom-0 select-none font-display font-black leading-none text-white/[0.04] text-[clamp(8rem,20vw,18rem)] lg:right-16">
+      <span className="pointer-events-none absolute right-4 bottom-0 select-none font-display font-black leading-none text-white/4 text-[clamp(8rem,20vw,18rem)] lg:right-16">
         1997
       </span>
 
-      <div className="container relative z-10 pb-20 pt-44">
+      <div className="container relative z-10 py-10 md:py-20">
         <motion.div initial="hidden" animate="visible" variants={staggerContainer}>
           <motion.div variants={fadeInUp} className="mb-5 flex items-center gap-3">
             <span className="h-px w-8 bg-iisc-gold" />
@@ -37,7 +49,21 @@ export function Hero() {
             Um lugar onde
             <br />
             você encontra{" "}
-            <span className="text-iisc-gold">propósito</span>
+            <span className="relative inline-block min-w-[200px] md:min-w-[400px]">
+              <AnimatePresence mode="popLayout">
+                <motion.span
+                  key={wordIndex}
+                  initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
+                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                  exit={{ opacity: 0, y: -20, filter: "blur(4px)" }}
+                  transition={{ duration: 0.5, ease: "easeOut" }}
+                  className="absolute left-0 text-iisc-gold"
+                >
+                  {WORDS[wordIndex]}
+                </motion.span>
+              </AnimatePresence>
+              <span className="opacity-0 pointer-events-none">transformação</span>
+            </span>
           </motion.h1>
 
           <motion.p

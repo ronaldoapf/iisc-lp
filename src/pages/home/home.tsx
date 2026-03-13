@@ -1,4 +1,6 @@
 import { motion } from "framer-motion"
+import useEmblaCarousel from "embla-carousel-react"
+import Autoplay from "embla-carousel-autoplay"
 import {
   Heart,
   BookOpen,
@@ -73,14 +75,67 @@ const pillars = [
   },
 ]
 
+const carouselImages = [
+  "https://images.unsplash.com/photo-1544427920-c49ccfb85579?q=80&w=2000&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1510590337019-5ef8d3d32116?q=80&w=2000&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1478147427282-58a87a120781?q=80&w=2000&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1438232992991-995b7058bbb3?q=80&w=2000&auto=format&fit=crop"
+]
+
 export function Home() {
+  const [emblaRef] = useEmblaCarousel({ loop: true, align: "start" }, [Autoplay({ delay: 4000 })])
+
   return (
     <div className="min-h-screen flex flex-col items-center">
       <Hero />
 
+      <section className="w-full py-10 md:py-20 relative bg-foreground overflow-hidden">
+        <div className="container mb-10">
+          <div className="flex flex-col md:flex-row justify-between md:items-end gap-6 text-white">
+            <div className="max-w-xl">
+              <div className="flex items-center gap-2">
+                <span className="h-px w-6 rounded-full bg-iisc-gold" />
+                <span className="font-mono text-sm tracking-[0.2em] text-accent uppercase block">Nossa Família</span>
+              </div>
+              <h2 className="display-title text-5xl md:text-7xl">
+                Momentos <span className="text-accent">Reais</span>
+              </h2>
+            </div>
+            <p className="text-white/60 font-medium max-w-sm text-lg">
+              Uma espiada no que vivemos semanalmente. Comunhão, adoração e alegria em servir a Deus juntos.
+            </p>
+          </div>
+        </div>
+
+        <div className="w-full overflow-hidden" ref={emblaRef}>
+          <div className="flex touch-pan-y" style={{ backfaceVisibility: "hidden" }}>
+            {carouselImages.map((src, i) => (
+              <div key={i} className="flex-[0_0_85%] min-w-0 md:flex-[0_0_40%] lg:flex-[0_0_40%] pl-6">
+                <div className="relative aspect-16/10 overflow-hidden rounded-4xl group">
+                  <div className="absolute inset-0 bg-primary/40 mix-blend-multiply group-hover:bg-transparent transition-colors duration-700 z-10" />
+                  <img
+                    src={src}
+                    loading="lazy"
+                    alt="Momento da Igreja"
+                    className="w-full h-full object-cover transform scale-105 group-hover:scale-100 transition-transform duration-1000 ease-out"
+                  />
+                  {/* <div className="absolute bottom-8 left-8 z-20 overflow-hidden">
+                    <div className="transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out">
+                      <div className="px-6 py-3 rounded-full bg-white text-xs font-bold text-foreground tracking-widest uppercase shadow-2xl">
+                        IISC Community
+                      </div>
+                    </div>
+                  </div> */}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section
         id="sobre-nos"
-        className="w-full py-12 lg:py-24 bg-white"
+        className="w-full py-10 lg:py-20 bg-white"
       >
         <div className="container">
           <motion.div
@@ -131,6 +186,7 @@ export function Home() {
             ))}
           </motion.div>
 
+
           {/* Bible verse callout */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -154,8 +210,6 @@ export function Home() {
 
         </div>
       </section>
-
-      <WelcomeBanner />
 
       <section
         id="events"
@@ -258,6 +312,9 @@ export function Home() {
           </div>
         </div>
       </section>
+      
+      <WelcomeBanner />
+
 
       {/* ── Location ───────────────────────────────────────── */}
       <Location />
