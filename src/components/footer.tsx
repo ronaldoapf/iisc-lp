@@ -2,7 +2,7 @@ import { fadeInUp, staggerContainer } from "@/motions"
 import { motion } from "framer-motion"
 import { Mail, MapPin, Phone } from "lucide-react"
 import { Logo } from "./logo"
-
+import { contactInfo } from "@/constants"
 
 export function Footer() {
   return (
@@ -28,15 +28,15 @@ export function Footer() {
             <div className="space-y-2 text-sm text-muted-foreground">
               <div className="flex items-center gap-2">
                 <MapPin className="h-4 w-4" />
-                <span>Avenida José Fonseca e Silva, 737</span>
+                <span>{contactInfo.address}</span>
               </div>
               <div className="flex items-center gap-2">
                 <Phone className="h-4 w-4" />
-                <span>(34) 9 9119-2543</span>
+                <span>{contactInfo.phone}</span>
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="h-4 w-4" />
-                <span>ronaldo.alves.1997@gmail.com</span>
+                <span>{contactInfo.email}</span>
               </div>
             </div>
           </motion.div>

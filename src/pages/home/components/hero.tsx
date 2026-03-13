@@ -17,8 +17,8 @@ export function Hero() {
   }, [])
 
   return (
-    <section className="relative w-full overflow-hidden hero-background min-h-[75vh] flex flex-col justify-end">
-      <div className="absolute inset-0 bg-gradient-to-t from-iisc-midnight via-iisc-midnight/60 to-iisc-midnight/10" />
+    <section className="relative w-full overflow-hidden hero-background flex flex-col justify-end">
+      <div className="absolute inset-0 bg-linear-to-t from-iisc-midnight via-iisc-midnight/60 to-iisc-midnight/10" />
 
       <div
         className="absolute inset-0 opacity-[0.035]"
@@ -29,11 +29,11 @@ export function Hero() {
         }}
       />
 
-      <span className="pointer-events-none absolute right-4 bottom-0 select-none font-display font-black leading-none text-white/[0.04] text-[clamp(8rem,20vw,18rem)] lg:right-16">
+      <span className="pointer-events-none absolute right-4 bottom-0 select-none font-display font-black leading-none text-white/4 text-[clamp(8rem,20vw,18rem)] lg:right-16">
         1997
       </span>
 
-      <div className="container relative z-10 pb-20 pt-44">
+      <div className="container relative z-10 py-10 md:py-20">
         <motion.div initial="hidden" animate="visible" variants={staggerContainer}>
           <motion.div variants={fadeInUp} className="mb-5 flex items-center gap-3">
             <span className="h-px w-8 bg-iisc-gold" />

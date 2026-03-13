@@ -89,13 +89,16 @@ export function Home() {
     <div className="min-h-screen flex flex-col items-center">
       <Hero />
 
-      <section className="w-full py-32 relative bg-foreground overflow-hidden">
-        <div className="container mb-16">
+      <section className="w-full py-10 md:py-20 relative bg-foreground overflow-hidden">
+        <div className="container mb-10">
           <div className="flex flex-col md:flex-row justify-between md:items-end gap-6 text-white">
             <div className="max-w-xl">
-              <span className="font-mono text-sm tracking-[0.2em] text-accent uppercase mb-6 block">Nossa Família</span>
+              <div className="flex items-center gap-2">
+                <span className="h-px w-6 rounded-full bg-iisc-gold" />
+                <span className="font-mono text-sm tracking-[0.2em] text-accent uppercase block">Nossa Família</span>
+              </div>
               <h2 className="display-title text-5xl md:text-7xl">
-                Momentos <br /><span className="italic text-accent">Reais</span>
+                Momentos <span className="text-accent">Reais</span>
               </h2>
             </div>
             <p className="text-white/60 font-medium max-w-sm text-lg">
@@ -107,22 +110,22 @@ export function Home() {
         <div className="w-full overflow-hidden" ref={emblaRef}>
           <div className="flex touch-pan-y" style={{ backfaceVisibility: "hidden" }}>
             {carouselImages.map((src, i) => (
-              <div key={i} className="flex-[0_0_85%] min-w-0 md:flex-[0_0_40%] lg:flex-[0_0_40%] pl-6 first:pl-4 lg:first:pl-12">
+              <div key={i} className="flex-[0_0_85%] min-w-0 md:flex-[0_0_40%] lg:flex-[0_0_40%] pl-6">
                 <div className="relative aspect-16/10 overflow-hidden rounded-4xl group">
                   <div className="absolute inset-0 bg-primary/40 mix-blend-multiply group-hover:bg-transparent transition-colors duration-700 z-10" />
                   <img
                     src={src}
+                    loading="lazy"
                     alt="Momento da Igreja"
                     className="w-full h-full object-cover transform scale-105 group-hover:scale-100 transition-transform duration-1000 ease-out"
-                    loading="lazy"
                   />
-                  <div className="absolute bottom-8 left-8 z-20 overflow-hidden">
+                  {/* <div className="absolute bottom-8 left-8 z-20 overflow-hidden">
                     <div className="transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out">
                       <div className="px-6 py-3 rounded-full bg-white text-xs font-bold text-foreground tracking-widest uppercase shadow-2xl">
                         IISC Community
                       </div>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             ))}
@@ -132,7 +135,7 @@ export function Home() {
 
       <section
         id="sobre-nos"
-        className="w-full py-12 lg:py-24 bg-white"
+        className="w-full py-10 lg:py-20 bg-white"
       >
         <div className="container">
           <motion.div
@@ -207,8 +210,6 @@ export function Home() {
 
         </div>
       </section>
-
-      <WelcomeBanner />
 
       <section
         id="events"
@@ -311,6 +312,9 @@ export function Home() {
           </div>
         </div>
       </section>
+      
+      <WelcomeBanner />
+
 
       {/* ── Location ───────────────────────────────────────── */}
       <Location />
