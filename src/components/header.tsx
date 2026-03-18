@@ -35,12 +35,20 @@ export function Header() {
                 {item.label}
               </Link>
             ))}
-            <a
-              href="#location"
-              className="inline-flex items-center px-5 py-2.5 text-xs font-bold uppercase tracking-widest transition-all duration-300 border border-iisc-gold/50 text-iisc-gold-light hover:bg-iisc-gold hover:border-iisc-gold hover:text-white"
-            >
-              Venha nos visitar
-            </a>
+            <div className="flex items-center gap-3">
+              <a
+                href="#location"
+                className="inline-flex items-center px-5 py-2.5 text-xs font-bold uppercase tracking-widest transition-all duration-300 border border-iisc-gold/50 text-iisc-gold-light hover:bg-iisc-gold hover:border-iisc-gold hover:text-white"
+              >
+                Venha nos visitar
+              </a>
+              <Link
+                to="/login"
+                className="inline-flex items-center px-5 py-2.5 text-xs font-bold uppercase tracking-widest transition-all duration-300 bg-iisc-midnight text-white hover:bg-iisc-midnight/90"
+              >
+                Login
+              </Link>
+            </div>
           </nav>
 
           <button
@@ -73,13 +81,22 @@ export function Header() {
                     {item.label}
                   </Link>
                 ))}
-                <a
-                  href="#location"
-                  onClick={() => setMenuOpen(false)}
-                  className="mt-3 border border-iisc-gold/40 py-3 text-center text-xs font-bold uppercase tracking-widest text-iisc-gold-light hover:bg-iisc-gold hover:text-white transition-all duration-300"
-                >
-                  Venha nos visitar
-                </a>
+                <div className="mt-3 flex flex-col gap-2">
+                  <a
+                    href="#location"
+                    onClick={() => setMenuOpen(false)}
+                    className="border border-iisc-gold/40 py-3 text-center text-xs font-bold uppercase tracking-widest text-iisc-gold-light hover:bg-iisc-gold hover:text-white transition-all duration-300"
+                  >
+                    Venha nos visitar
+                  </a>
+                  <Link
+                    to="/login"
+                    onClick={() => setMenuOpen(false)}
+                    className="bg-white/10 py-3 text-center text-xs font-bold uppercase tracking-widest text-white hover:bg-white/20 transition-all duration-300"
+                  >
+                    Login
+                  </Link>
+                </div>
               </nav>
             </motion.div>
           )}
