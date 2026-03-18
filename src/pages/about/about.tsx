@@ -4,7 +4,7 @@ import { BookOpen, Church, Heart, Star } from "lucide-react"
 import { WelcomeBanner } from "../home/components/welcome-banner"
 import { AboutSectionItem } from "./components/about-section-item"
 import { Separator } from "radix-ui"
-import { faithStatements } from "@/constants"
+import { churchHistory, faithStatements } from "@/constants"
 
 
 export function About() {
@@ -23,7 +23,7 @@ export function About() {
         />
 
         <span className="pointer-events-none absolute right-4 bottom-0 select-none font-display font-black leading-none text-white/4 text-[clamp(8rem,20vw,18rem)] lg:right-16">
-          1997
+          {churchHistory.foundingYear}
         </span>
 
         <div className="container relative z-10 py-10 md:py-20">
@@ -48,9 +48,7 @@ export function About() {
               variants={fadeInUp}
               className="mt-8 max-w-lg text-base leading-relaxed text-iisc-cream/65"
             >
-              A Igreja Internacional Seguidores de Cristo está em Uberlândia desde 1997,
-              atuando com compromisso com a obra social e foco em ajudar órfãos,
-              viúvas e necessitados.
+              {churchHistory.foundingText}
             </motion.p>
 
             <motion.div variants={fadeInUp} className="mt-7">

@@ -1,3 +1,4 @@
+import { contactInfo } from "@/constants"
 import { motion } from "framer-motion"
 import { ArrowRight } from "lucide-react"
 
@@ -10,7 +11,7 @@ export function WelcomeBanner() {
       <div className="grid min-h-150 lg:grid-cols-2">
         <div className="relative min-h-120 overflow-hidden lg:min-h-full">
           <img
-            src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=2069&auto=format&fit=crop"
+            src="/entrada.JPG"
             alt="Pessoas da nossa comunidade"
             className="absolute inset-0 h-full w-full object-cover object-center"
           />
@@ -107,7 +108,7 @@ export function WelcomeBanner() {
             transition={{ duration: 0.6, delay: 0.5 }}
           >
             <a
-              href="#location"
+              href={contactInfo.googleMapsUrl}
               className="group inline-flex items-center gap-2.5 rounded-full px-7 py-3.5 text-sm font-bold uppercase tracking-widest transition-all duration-300 border border-white/50 text-white hover:bg-iisc-gold hover:border-iisc-gold"
             >
               Venha nos visitar

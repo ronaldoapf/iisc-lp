@@ -2,7 +2,15 @@
 export const contactInfo = {
   address: "Avenida José Fonseca e Silva, 737",
   phone: "(34) 9 9119-2543",
-  email: "iseguidoresdecristo@gmail.com"
+  email: "iseguidoresdecristo@gmail.com",
+  googleMapsUrl: "https://www.google.com/maps?q=Avenida+Jos%C3%A9+Fonseca+e+Silva,+737",
+}
+
+export const churchHistory = {
+  foundingYear: 1997,
+  foundingText: `A Igreja Internacional Seguidores de Cristo está em Uberlândia desde 1997,
+                atuando com compromisso com a obra social e foco em ajudar órfãos,
+                viúvas e necessitados.`
 }
 
 export const faithStatements = [

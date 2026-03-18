@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react"
 import { Link } from "react-router-dom"
 import { fadeInUp, staggerContainer } from "@/motions"
 import { useEffect, useState } from "react"
+import { churchHistory, contactInfo } from "@/constants"
 
 const WORDS = ["propósito", "esperança", "comunhão", "transformação", "Jesus"]
 
@@ -30,7 +31,7 @@ export function Hero() {
       />
 
       <span className="pointer-events-none absolute right-4 bottom-0 select-none font-display font-black leading-none text-white/4 text-[clamp(8rem,20vw,18rem)] lg:right-16">
-        1997
+        {churchHistory.foundingYear}
       </span>
 
       <div className="container relative z-10 py-10 md:py-20">
@@ -79,7 +80,8 @@ export function Hero() {
             className="mt-8 flex flex-wrap items-center gap-4"
           >
             <a
-              href="#location"
+              href={contactInfo.googleMapsUrl}
+              target="_blank"
               className="group w-full md:w-fit inline-flex items-center justify-center gap-2 bg-white text-primary px-7 py-3.5 text-sm font-bold uppercase tracking-widest hover:bg-iisc-gold hover:text-white transition-all duration-300"
             >
               Venha nos visitar

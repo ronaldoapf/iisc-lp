@@ -3,11 +3,12 @@ import { Logo } from "./logo"
 import { Link } from "react-router-dom"
 import { useState } from "react"
 import { Menu, X } from "lucide-react"
+import { contactInfo } from "@/constants"
 
 const navItems = [
   { label: "Início", href: "/" },
   { label: "Sobre", href: "/sobre" },
-  { label: "Ministérios", href: "/#ministerios" },
+  { label: "Ministérios", href: "/ministerios" },
   { label: "Eventos", href: "/#events" },
 ]
 
@@ -37,7 +38,8 @@ export function Header() {
             ))}
             <div className="flex items-center gap-3">
               <a
-                href="#location"
+                href={contactInfo.googleMapsUrl}
+                target="_blank"
                 className="inline-flex items-center px-5 py-2.5 text-xs font-bold uppercase tracking-widest transition-all duration-300 border border-iisc-gold/50 text-iisc-gold-light hover:bg-iisc-gold hover:border-iisc-gold hover:text-white"
               >
                 Venha nos visitar
@@ -46,7 +48,7 @@ export function Header() {
                 to="/login"
                 className="inline-flex items-center px-5 py-2.5 text-xs font-bold uppercase tracking-widest transition-all duration-300 bg-iisc-midnight text-white hover:bg-iisc-midnight/90"
               >
-                Login
+                Entrar
               </Link>
             </div>
           </nav>
@@ -94,7 +96,7 @@ export function Header() {
                     onClick={() => setMenuOpen(false)}
                     className="bg-white/10 py-3 text-center text-xs font-bold uppercase tracking-widest text-white hover:bg-white/20 transition-all duration-300"
                   >
-                    Login
+                    Entrar
                   </Link>
                 </div>
               </nav>

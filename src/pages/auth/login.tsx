@@ -14,14 +14,14 @@ export function Login() {
         Cadastro
       </Link>
       <div className="relative hidden h-full flex-col bg-muted p-10 text-white dark:border-r lg:flex">
-        <img 
-          src="/register.png" 
-          alt="Worship" 
+        <img
+          src="/jovens-opt.webp"
+          alt="Worship"
           className="absolute inset-0 object-cover w-full h-full"
         />
         <div className="relative z-20 flex items-center text-lg font-medium">
           <Link to="/">
-            <img src="/logo-sem-fundo.png" alt="IISC" className="h-12 object-contain" />
+            <img src="/logo-sem-fundo.png" alt="IISC" className="h-8 object-contain" />
           </Link>
         </div>
       </div>
